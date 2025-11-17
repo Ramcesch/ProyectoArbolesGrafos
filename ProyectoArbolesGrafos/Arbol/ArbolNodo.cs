@@ -18,7 +18,7 @@ namespace ProyectoArbolesGrafos.Arbol
             Children = new List<ArbolNodo<T>>();
         }
 
-        public void Añadirhijo(ArbolNodo<T> child)
+        public void AddChild(ArbolNodo<T> child)
         {
             child.Parent = this;
             Children.Add(child);

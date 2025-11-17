@@ -18,7 +18,59 @@ namespace ProyectoArbolesGrafos.Arbol
             var parent = EncontrarNodo(parentValue);
             if (parent == null)
                 return false;
+
+            parent.AddChild(new ArbolNodo<T>(newValue));
+            return true;
         }
 
+        public ArbolNodo<T> EncontrarNodo(T value)
+        {
+            return EncontrarNodoRecursivo(Root, value);
+        }
+
+        private ArbolNodo<T> EncontrarNodoRecursivo(ArbolNodo<T> nodo, T value)
+        {
+            if(nodo.Value.Equals(value))
+                return nodo;
+            foreach(var child in nodo.Children)
+            {
+                var encontrar = EncontrarNodoRecursivo(child, value);
+                if (encontrar != null)
+                    return encontrar;
+            }
+
+            return null;
+        }
+
+        public List<T> TraversePreOrder()/// Recorrer en preorden
+        {
+            var list = new List<T>();
+            PreOrder(Root, list);
+            return list;
+        }
+
+        private void PreOrder(ArbolNodo<T> nodo, List<T> list)
+        {
+            list.Add(nodo.Value);
+
+            foreach (var child in nodo.Children)
+            {
+                PreOrder(child, list);
+            }
+        }
+
+        public int ContarNodos()
+        {
+            return ContarNodosRecursivo(Root);
+        }
+        private int ContarNodosRecursivo(ArbolNodo<T> nodo)
+        {
+            int count = 1; // Contar el nodo actual
+            foreach (var child in nodo.Children)
+            {
+                count += ContarNodosRecursivo(child);
+            }
+            return count;
+        }
     }
 }
