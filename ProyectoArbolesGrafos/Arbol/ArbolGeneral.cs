@@ -78,14 +78,14 @@ namespace ProyectoArbolesGrafos.Arbol
             if (nodo == null)
                 return null;
 
-            int level = 0;
+            int nivel = 0;
             while(nodo.Parent != null)
             {
-                level++;
+                nivel++;
                 nodo = nodo.Parent;
             }
 
-            return level;
+            return nivel;
         }
     }
 }
