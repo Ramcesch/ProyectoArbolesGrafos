@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace ProyectoArbolesGrafos.Arbol
 {
-    internal class ArbolGeneral
+    public class ArbolGeneral<T>
     {
+        public ArbolNodo<T> Root { get; set; }
+        public ArbolGeneral(T rootValue)
+        {
+            Root = new ArbolNodo<T>(rootValue);
+        }
+        public bool Insertar(T parentValue, T newValue)
+        {
+            var parent = EncontrarNodo(parentValue);
+            if (parent == null)
+                return false;
+        }
+
     }
 }
