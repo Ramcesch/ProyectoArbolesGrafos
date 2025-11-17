@@ -6,8 +6,22 @@ using System.Threading.Tasks;
 
 namespace ProyectoArbolesGrafos.Arbol
 {
-    public class ArbolNodo
+    public class ArbolNodo<T>
     {
+        public T Value { get; set; }
+        public ArbolNodo<T> Parent { get; set; }
+        public List<ArbolNodo<T>> Children { get; set; }
 
+        public ArbolNodo(T value)
+        {
+            Value = value;
+            Children = new List<ArbolNodo<T>>();
+        }
+
+        public void Añadirhijo(ArbolNodo<T> child)
+        {
+            child.Parent = this;
+            Children.Add(child);
+        }
     }
 }
