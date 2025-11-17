@@ -45,14 +45,13 @@
   <ItemGroup>
     <Compile Include="Arbol\ArbolGeneral.cs" />
     <Compile Include="Arbol\ArbolNodo.cs" />
+    <Compile Include="Grafo\Grafo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Grafo\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

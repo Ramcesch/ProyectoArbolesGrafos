@@ -72,5 +72,20 @@ namespace ProyectoArbolesGrafos.Arbol
             }
             return count;
         }
+        public int? GetLevel(T value)
+        {
+            var nodo = EncontrarNodo(value);
+            if (nodo == null)
+                return null;
+
+            int level = 0;
+            while(nodo.Parent != null)
+            {
+                level++;
+                nodo = nodo.Parent;
+            }
+
+            return level;
+        }
     }
 }
